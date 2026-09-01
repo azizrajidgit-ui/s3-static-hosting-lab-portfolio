@@ -1,6 +1,6 @@
 # AWS S3 Bucket Provisioning & Public Object Access — LAB-184
 
-![AWS](https://img.shields.io/badge/AWS-S3-orange)
+![AWS](https://img.shields.io/badge/AWS-S3-232F3E?logo=amazonwebservices&logoColor=FF9900)
 ![Domain](https://img.shields.io/badge/Domain-Cloud_Storage-blue)
 ![Focus](https://img.shields.io/badge/Focus-Access_Control-purple)
 
@@ -83,15 +83,6 @@ aws s3 ls s3://<bucket-name>
 
 Public access in S3 should be scoped as narrowly as possible. Disabling account/bucket-level blocks is only the first step — pairing it with object-level ACLs (rather than a blanket bucket policy) keeps the rest of the bucket private by default while exposing only the intended objects.
 
-## Production Considerations
-
-In a production environment, consider these improvements over ACL-based public access:
-
-- **Bucket policy scoped by prefix** — more manageable and auditable than per-object ACLs
-- **CloudFront + Origin Access Control (OAC)** — serves objects publicly through CDN without making the bucket itself public
-- **IAM instance role** instead of stored credentials — eliminates key management on EC2 hosts
-- **S3 Block Public Access at the account level** — ensures no bucket can be made public accidentally
-
 ## Skills Demonstrated
 
 - **AWS CLI** — profile configuration, bucket creation, object listing
@@ -103,4 +94,4 @@ In a production environment, consider these improvements over ACL-based public a
 
 ## License
 
-MIT — see [LICENSE](LICENSE) file.
+MIT — see [LICENSE](LICENSE).
